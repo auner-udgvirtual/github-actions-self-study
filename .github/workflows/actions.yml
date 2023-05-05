@@ -1,6 +1,19 @@
 name: Actions Workflow
 
 on:
+  push:
+    branches:
+      - master
+      - "feature/*" # matches feature/featA, feature/FeatB, doesn't match feature/feat/a
+      - "feature/**"
+      - "!feature/featC"
+    tags:
+      - v1.*
+    paths:
+      - "**.js"
+      - "!filename.js"
+    # paths-ignore:
+    #   - "docs/**"
   # repository_dispatch:
   #   types: [build]
   # schedule:
